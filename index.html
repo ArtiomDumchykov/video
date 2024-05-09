@@ -30,7 +30,7 @@
         const playBackRate = document.querySelector(".playbackrate")
         
         playBackRate.addEventListener('change', function() {
-          videoPlayer && videoPlayer.playbackRate = +this.value
+          videoPlayer.playbackRate = +this.value
         });
 
         videoFileInput.addEventListener('change', function() {
