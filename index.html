@@ -27,6 +27,11 @@
     <script>
         const videoFileInput = document.getElementById('videoFileInput');
         const videoPlayer = document.getElementById('videoPlayer');
+        const playBackRate = document.querySelector(".playbackrate")
+        
+        playBackRate.addEventListener('change', function() {
+          videoPlayer && videoPlayer.playbackRate = +this.value
+        });
 
         videoFileInput.addEventListener('change', function() {
             const file = this.files[0];
