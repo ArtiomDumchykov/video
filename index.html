@@ -30,7 +30,11 @@
         const playBackRate = document.querySelector(".playbackrate")
         
         playBackRate.addEventListener('change', function() {
-          videoPlayer.playbackRate = +this.value
+            if (!videoPlayer) {
+                return
+            }
+            
+            videoPlayer.playbackRate = +this.value
         });
 
         videoFileInput.addEventListener('change', function() {
@@ -39,6 +43,14 @@
             videoPlayer.src = url;
         });
 
+        document.addEventListener("keydown", e => {
+            if (!videoPlayer) {
+                return
+            }
+            
+            e.keyCode == 78 && (videoPlayer.currentTime += 2);
+            e.keyCode == 66 && (videoPlayer.currentTime -= 2);
+        })
     </script>
 </body>
 
